@@ -188,12 +188,20 @@ export default function Vision() {
         <div className="absolute top-20 left-10 w-72 h-72 bg-emerald/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue/5 rounded-full blur-3xl animate-pulse delay-1000" />
         
-        {/* Decorative images */}
-        <div className="absolute top-10 right-20 opacity-20">
-          <div className="w-32 h-32 bg-gradient-to-br from-emerald/20 to-blue/20 rounded-lg transform rotate-12" />
+        {/* Stock images */}
+        <div className="absolute top-10 right-20 opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=300&fit=crop&crop=center" 
+            alt="Technology vision" 
+            className="w-32 h-32 rounded-lg transform rotate-12 shadow-2xl"
+          />
         </div>
-        <div className="absolute bottom-10 left-20 opacity-20">
-          <div className="w-40 h-40 bg-gradient-to-tr from-blue/20 to-emerald/20 rounded-lg transform -rotate-12" />
+        <div className="absolute bottom-10 left-20 opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=300&fit=crop&crop=center" 
+            alt="Digital transformation" 
+            className="w-40 h-40 rounded-lg transform -rotate-12 shadow-2xl"
+          />
         </div>
         
         {/* Floating particles */}

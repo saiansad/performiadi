@@ -187,9 +187,21 @@ export default function Services() {
       
       {/* Additional visual elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Decorative circles */}
-        <div className="absolute top-10 right-20 w-20 h-20 border-2 border-emerald/20 rounded-full animate-pulse" />
-        <div className="absolute bottom-10 left-20 w-16 h-16 border-2 border-blue/20 rounded-full animate-pulse delay-500" />
+        {/* Stock images */}
+        <div className="absolute top-10 right-20 opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&crop=center" 
+            alt="Web development" 
+            className="w-20 h-20 rounded-full shadow-2xl"
+          />
+        </div>
+        <div className="absolute bottom-10 left-20 opacity-30">
+          <img 
+            src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=200&h=200&fit=crop&crop=center" 
+            alt="Digital marketing" 
+            className="w-16 h-16 rounded-full shadow-2xl"
+          />
+        </div>
         
         {/* Gradient overlays */}
         <div className="absolute top-1/4 left-10 w-64 h-64 bg-gradient-to-br from-emerald/5 to-transparent rounded-full blur-2xl" />

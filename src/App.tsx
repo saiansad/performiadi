@@ -5,8 +5,10 @@ import HeroSlider from './sections/HeroSlider';
 import Vision from './sections/Vision';
 import Pourquoi from './sections/Pourquoi';
 import Services from './sections/Services';
+import Domaines from './sections/Domaines';
 import Methodologie from './sections/Methodologie';
 import Equipe from './sections/Equipe';
+import Localisation from './sections/Localisation';
 import CTA from './sections/CTA';
 import Footer from './sections/Footer';
 import CustomCursor from './components/CustomCursor';
@@ -28,8 +30,10 @@ function App() {
         <Vision />
         <Pourquoi />
         <Services />
+        <Domaines />
         <Methodologie />
         <Equipe />
+        <Localisation />
         <CTA />
       </main>
       <Footer />
