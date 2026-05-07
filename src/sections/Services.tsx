@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, Megaphone, Phone, Cpu, Wrench, MessageCircle, ArrowRight } from 'lucide-react';
+import { Globe, Megaphone, Phone, Cpu, ArrowRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,39 +8,31 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     icon: Globe,
-    title: 'Création de sites web & applications',
+    title: 'Développement Web & Mobile',
     description:
-      'Sites vitrines, e-commerce et applications mobiles sur mesure. Design premium, performance optimale, expérience utilisateur irréprochable.',
+      'Applications natives et plateformes web scalables conçues pour la performance.',
+    features: ['React & Next.js', 'React Native & Flutter', 'Architecture scalable', 'Performance optimisée']
   },
   {
     icon: Megaphone,
     title: 'Marketing Digital',
     description:
-      'SEO, SEA, social media et content marketing. Une stratégie intégrée pour maximiser votre visibilité et votre ROI.',
+      'Stratégies d\'acquisition data-driven pour dominer votre écosystème numérique.',
+    features: ['SEO & SEA', 'Social Media Marketing', 'Content Strategy', 'Analytics & ROI']
   },
   {
     icon: Phone,
     title: 'Téléphonie IP',
     description:
-      'Solutions de communication modernes et économiques. VoIP, centres d\'appel, intégration CRM — tout pour rester connecté.',
+      'Infrastructures de communication unifiées pour une collaboration sans frontières.',
+    features: ['VoIP & SIP', 'Centres d\'appels', 'Intégration CRM', 'Solutions cloud']
   },
   {
     icon: Cpu,
-    title: 'Solutions Technologiques/IT',
+    title: 'Audit IT & Sécurité',
     description:
-      'Infrastructure cloud, cybersécurité, intégration de systèmes. Une architecture IT robuste et évolutive.',
-  },
-  {
-    icon: Wrench,
-    title: 'DevOps & Automatisation',
-    description:
-      'Déploiement continu, CI/CD, monitoring. Accélérez vos cycles de développement avec des pratiques DevOps éprouvées.',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Conseil & Accompagnement',
-    description:
-      'Stratégie digitale, transformation des processus, formation. Nous vous guidons à chaque étape de votre évolution.',
+      'Évaluation rigoureuse de vos systèmes pour une efficacité et une sécurité maximales.',
+    features: ['Audit de sécurité', 'Tests de pénétration', 'Conformité RGPD', 'Monitoring 24/7']
   },
 ];
 
@@ -142,6 +134,17 @@ export default function Services() {
                   <p className="text-silver text-sm leading-relaxed mb-5">
                     {service.description}
                   </p>
+                  
+                  {/* Features List */}
+                  <div className="space-y-2 mb-5">
+                    {service.features.map((feature, featureIdx) => (
+                      <div key={featureIdx} className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald/60" />
+                        <span className="text-silver/80 text-xs">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                  
                   <button className="inline-flex items-center gap-2 text-emerald text-sm font-medium group/link">
                     <span className="relative">
                       En savoir plus

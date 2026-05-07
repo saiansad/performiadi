@@ -1,33 +1,34 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatedDots, AnimatedGradient } from '../components/AnimatedElements';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const team = [
   {
-    name: 'Jean-Pierre K.',
-    role: 'Business Developer',
+    name: 'Marc N.',
+    role: 'Senior Developer & Architecture',
     gradient: 'from-emerald/40 to-navy',
-    initial: 'JP',
+    initial: 'MN',
   },
   {
-    name: 'Marie T.',
-    role: 'Développeuse Full-Stack',
+    name: 'Sarah K.',
+    role: 'Lead Consultant Stratégie',
     gradient: 'from-blue/40 to-navy',
-    initial: 'MT',
+    initial: 'SK',
   },
   {
-    name: 'Paul N.',
-    role: 'Expert Marketing Digital',
+    name: 'Jean-Luc B.',
+    role: 'Business Developer & Partenariats',
     gradient: 'from-emerald/30 to-blue/20',
-    initial: 'PN',
+    initial: 'JL',
   },
   {
-    name: 'Sarah F.',
-    role: 'Consultante Stratégique',
+    name: 'Expert Tech',
+    role: 'Solutions & Innovation',
     gradient: 'from-blue/30 to-emerald/20',
-    initial: 'SF',
+    initial: 'ET',
   },
 ];
 
@@ -105,6 +106,8 @@ export default function Equipe() {
             'radial-gradient(ellipse at center, rgba(0,208,132,0.04) 0%, transparent 70%)',
         }}
       />
+      <AnimatedDots />
+      <AnimatedGradient />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}

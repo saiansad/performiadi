@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import { TrendingUp, Target, Settings, BarChart3 } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { AnimatedDots, FloatingShapes } from '../components/AnimatedElements';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,7 +80,9 @@ export default function Pourquoi() {
       ref={sectionRef}
       className="relative py-24 md:py-32 bg-navy bg-grid-pattern overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16">
+      <AnimatedDots />
+      <FloatingShapes />
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}
         <div ref={titleRef} className="text-center mb-16">
           <span className="text-emerald text-sm font-medium uppercase tracking-[0.2em] mb-4 block">
