@@ -40,33 +40,145 @@ export default function Pourquoi() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Title animation
+      // Enhanced title animation with parallax
       gsap.from(titleRef.current?.children || [], {
-        y: 40,
+        y: 60,
         opacity: 0,
+        rotation: 1,
         stagger: 0.15,
-        duration: 0.8,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: titleRef.current,
           start: 'top 80%',
+          toggleActions: 'play none none reverse',
         },
       });
 
-      // Cards animation
-      const cardEls = cardsRef.current?.children;
-      if (cardEls) {
-        gsap.from(cardEls, {
-          y: 60,
+      const cards = cardsRef.current?.children;
+      if (cards) {
+        const cardArray = Array.from(cards);
+        
+        // Staggered entrance animation with rotation
+        gsap.from(cardArray, {
+          y: 80,
           opacity: 0,
-          scale: 0.95,
-          stagger: 0.12,
-          duration: 0.7,
-          ease: 'power3.out',
+          scale: 0.9,
+          rotation: 2,
+          stagger: 0.15,
+          duration: 0.8,
+          ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: cardsRef.current,
-            start: 'top 75%',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
           },
+        });
+
+        // Parallax effect on cards
+        gsap.to(cardArray, {
+          yPercent: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+
+        // Enhanced hover effects for cards
+        cardArray.forEach((card, index) => {
+          const iconEl = card.querySelector('.card-icon');
+          const titleEl = card.querySelector('.card-title');
+          
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              y: -10,
+              scale: 1.02,
+              rotation: 0,
+              duration: 0.3,
+              ease: 'power2.out',
+            });
+            
+            if (iconEl) {
+              gsap.to(iconEl, {
+                rotation: 15,
+                scale: 1.1,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            }
+            
+            if (titleEl) {
+              gsap.to(titleEl, {
+                x: 5,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              y: 0,
+              scale: 1,
+              duration: 0.3,
+              ease: 'power2.out',
+            });
+            
+            if (iconEl) {
+              gsap.to(iconEl, {
+                rotation: 0,
+                scale: 1,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            }
+            
+            if (titleEl) {
+              gsap.to(titleEl, {
+                x: 0,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            }
+          });
+        });
+      }
+
+      // Animated lines effect
+      const lines = sectionRef.current?.querySelectorAll('.animated-line');
+      if (lines) {
+        lines.forEach((line, index) => {
+          gsap.from(line, {
+            scaleX: 0,
+            opacity: 0,
+            duration: 1.5,
+            delay: index * 0.3,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: line,
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+          });
+        });
+      }
+
+      // Geometric shapes animation
+      const shapes = sectionRef.current?.querySelectorAll('.geometric-shape');
+      if (shapes) {
+        shapes.forEach((shape, index) => {
+          gsap.to(shape, {
+            rotation: 'random(-180, 180)',
+            scale: 'random(0.8, 1.2)',
+            duration: 'random(4, 8)',
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: index * 0.2,
+          });
         });
       }
     }, sectionRef);
@@ -76,12 +188,24 @@ export default function Pourquoi() {
 
   return (
     <section
-      id="pourquoi"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-navy bg-grid-pattern overflow-hidden"
+      className="relative py-16 md:py-20 bg-navy overflow-hidden"
     >
       <AnimatedDots />
       <FloatingShapes />
+      
+      {/* Additional visual elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Geometric shapes */}
+        <div className="absolute top-20 left-10 w-24 h-24 border-2 border-emerald/20 rounded-lg transform rotate-45 geometric-shape" />
+        <div className="absolute bottom-20 right-10 w-32 h-32 border-2 border-blue/20 rounded-full geometric-shape" />
+        <div className="absolute top-1/2 left-20 w-16 h-16 bg-gradient-to-br from-emerald/10 to-transparent rounded-lg geometric-shape" />
+        
+        {/* Animated lines */}
+        <div className="absolute top-1/3 right-1/4 w-64 h-px bg-gradient-to-r from-transparent via-emerald/30 to-transparent animated-line" />
+        <div className="absolute bottom-1/3 left-1/4 w-48 h-px bg-gradient-to-r from-transparent via-blue/30 to-transparent animated-line" />
+      </div>
+      
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}
         <div ref={titleRef} className="text-center mb-16">

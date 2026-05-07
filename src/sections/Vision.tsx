@@ -40,69 +40,108 @@ export default function Vision() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Header animation
+      // Header animation with parallax effect
       gsap.from(headerRef.current?.children || [], {
-        y: 40,
+        y: 60,
         opacity: 0,
         stagger: 0.15,
-        duration: 0.8,
+        duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: headerRef.current,
           start: 'top 80%',
+          end: 'bottom 20%',
+          scrub: 1,
         },
       });
 
-      // Content animation
+      // Content animation with rotation
       gsap.from(contentRef.current, {
-        x: -50,
+        y: 60,
         opacity: 0,
+        rotation: 2,
         duration: 1,
         ease: 'power3.out',
         scrollTrigger: {
           trigger: contentRef.current,
           start: 'top 75%',
+          toggleActions: 'play none none reverse',
         },
       });
 
-      // KPIs animation
+      // KPIs animation with enhanced effects
       const kpiEls = kpisRef.current?.children;
       if (kpiEls) {
         const kpiArray = Array.from(kpiEls) as Element[];
+        
+        // Staggered entrance animation
         gsap.from(kpiArray, {
-          y: 60,
+          y: 80,
           opacity: 0,
-          scale: 0.9,
-          stagger: 0.15,
-          duration: 0.7,
-          ease: 'power3.out',
+          scale: 0.8,
+          rotation: 5,
+          stagger: 0.2,
+          duration: 0.8,
+          ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: kpisRef.current,
-            start: 'top 75%',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
           },
         });
 
-        // Counter animation for numbers
-        kpiArray.forEach((el: Element) => {
+        // Parallax effect on scroll
+        gsap.to(kpiArray, {
+          yPercent: -20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: kpisRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+
+        // Counter animation for numbers with enhanced timing
+        kpiArray.forEach((el: Element, index) => {
           const valueEl = el.querySelector('.kpi-value');
+          const iconEl = el.querySelector('.kpi-icon');
+          
           if (valueEl) {
             const finalValue = valueEl.textContent;
             const isPercentage = finalValue?.includes('%');
             const isPlus = finalValue?.includes('+');
             const numericValue = parseInt(finalValue?.replace(/\D/g, '') || '0');
             
+            // Icon animation
+            if (iconEl) {
+              gsap.from(iconEl, {
+                scale: 0,
+                rotation: -180,
+                duration: 0.8,
+                delay: index * 0.1,
+                ease: 'back.out(1.7)',
+                scrollTrigger: {
+                  trigger: kpisRef.current,
+                  start: 'top 70%',
+                  toggleActions: 'play none none reverse',
+                },
+              });
+            }
+            
+            // Counter animation
             gsap.from(valueEl, {
               textContent: 0,
-              duration: 2,
+              duration: 2.5,
               ease: 'power2.out',
               snap: { textContent: 1 },
-              stagger: 0.5,
+              delay: index * 0.2,
               scrollTrigger: {
                 trigger: valueEl,
                 start: 'top 80%',
                 onEnter: () => {
                   let current = 0;
-                  const increment = numericValue / 50;
+                  const increment = numericValue / 60;
                   const timer = setInterval(() => {
                     current += increment;
                     if (current >= numericValue) {
@@ -110,11 +149,28 @@ export default function Vision() {
                       clearInterval(timer);
                     }
                     valueEl.textContent = Math.floor(current) + (isPercentage ? '%' : isPlus ? '+' : '');
-                  }, 30);
+                  }, 25);
                 },
               },
             });
           }
+        });
+      }
+
+      // Floating elements animation
+      const floatingElements = sectionRef.current?.querySelectorAll('.floating-particle');
+      if (floatingElements) {
+        floatingElements.forEach((el, index) => {
+          gsap.to(el, {
+            y: 'random(-30, 30)',
+            x: 'random(-20, 20)',
+            rotation: 'random(-180, 180)',
+            duration: 'random(3, 6)',
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            delay: index * 0.2,
+          });
         });
       }
     }, sectionRef);
@@ -124,14 +180,26 @@ export default function Vision() {
 
   return (
     <section
-      id="vision"
       ref={sectionRef}
-      className="relative py-24 md:py-32 bg-navy bg-grid-pattern overflow-hidden"
+      className="relative py-16 md:py-20 bg-navy overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-emerald/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        
+        {/* Decorative images */}
+        <div className="absolute top-10 right-20 opacity-20">
+          <div className="w-32 h-32 bg-gradient-to-br from-emerald/20 to-blue/20 rounded-lg transform rotate-12" />
+        </div>
+        <div className="absolute bottom-10 left-20 opacity-20">
+          <div className="w-40 h-40 bg-gradient-to-tr from-blue/20 to-emerald/20 rounded-lg transform -rotate-12" />
+        </div>
+        
+        {/* Floating particles */}
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald/30 rounded-full animate-bounce floating-particle" />
+        <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-blue/30 rounded-full animate-bounce delay-500 floating-particle" />
+        <div className="absolute top-1/2 left-3/4 w-2 h-2 bg-emerald/30 rounded-full animate-bounce delay-1000 floating-particle" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
