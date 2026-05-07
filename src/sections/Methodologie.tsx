@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Search, Blueprint, Rocket, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react';
+import { Search, FileText, Rocket, TrendingUp, ArrowRight, CheckCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -21,7 +21,7 @@ const methodologySteps = [
   },
   {
     number: '02',
-    icon: Blueprint,
+    icon: FileText,
     title: 'Conception Stratégique',
     description: 'Architecture UX et technique optimisée pour vos objectifs.',
     details: [
@@ -97,7 +97,8 @@ export default function Methodologie() {
       // Steps animation
       const stepEls = stepsRef.current?.children;
       if (stepEls) {
-        gsap.from(stepEls, {
+        const stepArray = Array.from(stepEls) as Element[];
+        gsap.from(stepArray, {
           x: -60,
           opacity: 0,
           stagger: 0.2,
@@ -110,7 +111,7 @@ export default function Methodologie() {
         });
 
         // Hover effect for steps
-        stepEls.forEach((el) => {
+        stepArray.forEach((el: Element) => {
           const iconEl = el.querySelector('.step-icon');
           const detailsEl = el.querySelector('.step-details');
           

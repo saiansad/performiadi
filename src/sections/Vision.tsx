@@ -68,7 +68,8 @@ export default function Vision() {
       // KPIs animation
       const kpiEls = kpisRef.current?.children;
       if (kpiEls) {
-        gsap.from(kpiEls, {
+        const kpiArray = Array.from(kpiEls) as Element[];
+        gsap.from(kpiArray, {
           y: 60,
           opacity: 0,
           scale: 0.9,
@@ -82,7 +83,7 @@ export default function Vision() {
         });
 
         // Counter animation for numbers
-        kpiEls.forEach((el) => {
+        kpiArray.forEach((el: Element) => {
           const valueEl = el.querySelector('.kpi-value');
           if (valueEl) {
             const finalValue = valueEl.textContent;
@@ -222,25 +223,6 @@ export default function Vision() {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes slide {
-          0% { transform: translateX(-100%); }
-          50% { transform: translateX(0); }
-          100% { transform: translateX(100%); }
-        }
-        .animate-slide_2s_ease-in-out_infinite {
-          animation: slide 2s ease-in-out infinite;
-        }
-        .animate-slide_2s_ease-in-out_infinite_delay-500 {
-          animation: slide 2s ease-in-out infinite;
-          animation-delay: 0.5s;
-        }
-        .animate-slide_2s_ease-in-out_infinite_delay-1000 {
-          animation: slide 2s ease-in-out infinite;
-          animation-delay: 1s;
-        }
-      `}</style>
     </section>
   );
 }
