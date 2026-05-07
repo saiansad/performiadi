@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 216 50% 10%;
+  --foreground: 0 0% 100%;
+  --card: 216 43% 12%;
+  --card-foreground: 0 0% 100%;
+  --popover: 216 43% 12%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 156 100% 41%;
+  --primary-foreground: 216 50% 10%;
+  --secondary: 216 43% 12%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 216 43% 15%;
+  --muted-foreground: 220 10% 75%;
+  --accent: 156 100% 41%;
+  --accent-foreground: 216 50% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 10% 75%;
+  --input: 216 43% 15%;
+  --ring: 156 100% 41%;
+  --radius: 0.625rem;
+  --sidebar-background: 216 50% 10%;
+  --sidebar-foreground: 220 10% 75%;
+  --sidebar-primary: 156 100% 41%;
+  --sidebar-primary-foreground: 216 50% 10%;
+  --sidebar-accent: 216 43% 12%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-border: 216 43% 15%;
+  --sidebar-ring: 156 100% 41%;
+}
+
+body {
+  background-color: #0B1426;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  border-color: rgba(184, 188, 200, 0.1);
+}
+
+.text-gradient-emerald {
+  background: linear-gradient(135deg, #00D084 0%, #00a868 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-emerald {
+  box-shadow: 0 0 30px rgba(0, 208, 132, 0.3);
+}
+
+.glow-emerald-strong {
+  box-shadow: 0 0 40px rgba(0, 208, 132, 0.4), 0 0 80px rgba(0, 208, 132, 0.1);
+}
+
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(0, 208, 132, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 208, 132, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.glass {
+  background: rgba(11, 20, 38, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-light {
+  background: rgba(17, 27, 46, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
