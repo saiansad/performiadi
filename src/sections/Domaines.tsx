@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, Users, Building, Cpu, Shield, BarChart3, Zap } from 'lucide-react';
+import { Globe, Users, Cpu, Shield, BarChart3, Zap } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
