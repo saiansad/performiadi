@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, MapPin, Users, Building, Cpu, Smartphone, Shield, BarChart3, Zap } from 'lucide-react';
+import { Globe, Users, Building, Cpu, Shield, BarChart3, Zap } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -105,7 +105,7 @@ export default function Domaines() {
         });
 
         // Enhanced hover effects for cards
-        cardArray.forEach((card, index) => {
+        cardArray.forEach((card) => {
           const iconEl = card.querySelector('.domaine-icon');
           const imageEl = card.querySelector('.domaine-image');
           

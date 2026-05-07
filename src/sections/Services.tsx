@@ -90,7 +90,7 @@ export default function Services() {
         });
 
         // Enhanced hover effects for cards
-        cardArray.forEach((card, index) => {
+        cardArray.forEach((card) => {
           const iconEl = card.querySelector('.service-icon');
           const titleEl = card.querySelector('.service-title');
           

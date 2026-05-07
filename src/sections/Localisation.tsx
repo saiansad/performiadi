@@ -93,7 +93,7 @@ export default function Localisation() {
         });
 
         // Enhanced hover effects for cards
-        cardArray.forEach((card, index) => {
+        cardArray.forEach((card) => {
           const imageEl = card.querySelector('.location-image');
           const iconEl = card.querySelector('.location-icon');
           

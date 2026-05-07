@@ -88,7 +88,7 @@ export default function Pourquoi() {
         });
 
         // Enhanced hover effects for cards
-        cardArray.forEach((card, index) => {
+        cardArray.forEach((card) => {
           const iconEl = card.querySelector('.card-icon');
           const titleEl = card.querySelector('.card-title');
           
