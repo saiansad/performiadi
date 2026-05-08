@@ -268,22 +268,24 @@ export default function Vision() {
             </div>
           </div>
         </div>
-          <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-light p-8">
-              <div className="space-y-4">
-                <div className="h-2 bg-emerald/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-emerald rounded-full animate-[slide_2s_ease-in-out_infinite]" style={{ width: '75%' }} />
-                </div>
-                <div className="h-2 bg-blue/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-blue rounded-full animate-[slide_2s_ease-in-out_infinite_delay-500]" style={{ width: '90%' }} />
-                </div>
-                <div className="h-2 bg-purple/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-purple rounded-full animate-[slide_2s_ease-in-out_infinite_delay-1000]" style={{ width: '60%' }} />
-                </div>
+        </div>
+
+        {/* Performance indicators */}
+        <div className="relative">
+          <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-light p-8">
+            <div className="space-y-4">
+              <div className="h-2 bg-emerald/20 rounded-full overflow-hidden">
+                <div className="h-full bg-emerald rounded-full animate-[slide_2s_ease-in-out_infinite]" style={{ width: '75%' }} />
               </div>
-              <div className="mt-8 text-center">
-                <p className="text-emerald text-sm font-medium">Performance en temps réel</p>
+              <div className="h-2 bg-blue/20 rounded-full overflow-hidden">
+                <div className="h-full bg-blue rounded-full animate-[slide_2s_ease-in-out_infinite_delay-500]" style={{ width: '90%' }} />
               </div>
+              <div className="h-2 bg-purple/20 rounded-full overflow-hidden">
+                <div className="h-full bg-purple rounded-full animate-[slide_2s_ease-in-out_infinite_delay-1000]" style={{ width: '60%' }} />
+              </div>
+            </div>
+            <div className="mt-8 text-center">
+              <p className="text-emerald text-sm font-medium">Performance en temps réel</p>
             </div>
           </div>
         </div>
