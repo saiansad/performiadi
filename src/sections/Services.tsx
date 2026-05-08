@@ -174,7 +174,7 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="relative py-16 md:py-20 bg-navy overflow-hidden"
+      className="relative py-12 md:py-16 bg-navy overflow-hidden"
     >
       {/* Diagonal accent */}
       <div
@@ -187,20 +187,12 @@ export default function Services() {
       
       {/* Additional visual elements */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Stock images */}
-        <div className="absolute top-10 right-20 opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=200&h=200&fit=crop&crop=center" 
-            alt="Web development" 
-            className="w-20 h-20 rounded-full shadow-2xl"
-          />
+        {/* Decorative elements */}
+        <div className="absolute top-10 right-20 opacity-20">
+          <div className="w-20 h-20 border-2 border-emerald/20 rounded-full animate-pulse" />
         </div>
-        <div className="absolute bottom-10 left-20 opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=200&h=200&fit=crop&crop=center" 
-            alt="Digital marketing" 
-            className="w-16 h-16 rounded-full shadow-2xl"
-          />
+        <div className="absolute bottom-10 left-20 opacity-20">
+          <div className="w-16 h-16 border-2 border-blue/20 rounded-full animate-pulse delay-500" />
         </div>
         
         {/* Gradient overlays */}
@@ -221,61 +213,68 @@ export default function Services() {
                 Nos Services
               </span>
               <h2 className="text-white text-3xl md:text-4xl font-bold tracking-tight mb-6">
-                Des solutions{' '}
-                <span className="text-emerald">complètes</span> pour votre
-                transformation digitale
+                Solutions complètes pour{' '}
+                <span className="text-emerald">votre croissance</span>
               </h2>
-              <p className="text-silver text-base leading-relaxed">
-                Une approche intégrée qui couvre tous les aspects de votre
-                présence digitale — de la conception technique à la stratégie
-                marketing, en passant par l'infrastructure IT.
+              <p className="text-silver text-sm leading-relaxed mb-6">
+                Nous combinons expertise technique et compréhension métier pour livrer des solutions qui transforment vos ambitions en réalité digitale.
               </p>
+              
+              {/* Service image */}
+              <div className="relative rounded-2xl overflow-hidden mb-6">
+                <img 
+                  src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&crop=center" 
+                  alt="Digital services" 
+                  className="w-full h-48 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+              </div>
+
+              {/* Key metrics */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-4">
+                  <p className="text-emerald text-2xl font-bold">4</p>
+                  <p className="text-silver text-xs">Services principaux</p>
+                </div>
+                <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-4">
+                  <p className="text-emerald text-2xl font-bold">24/7</p>
+                  <p className="text-silver text-xs">Support technique</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Right — Cards Grid */}
-          <div
-            ref={cardsRef}
-            className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6"
-          >
-            {services.map((service, idx) => {
+          {/* Right — Cards */}
+          <div ref={cardsRef} className="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {services.map((service, index) => {
               const Icon = service.icon;
               return (
                 <div
-                  key={idx}
-                  className="group relative bg-navy-light border border-white/[0.08] rounded-[20px] p-7 hover:-translate-y-1.5 hover:border-emerald/30 transition-all duration-400"
-                  style={{
-                    transitionTimingFunction:
-                      'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-                  }}
+                  key={index}
+                  className="group relative bg-navy-light/50 backdrop-blur-sm border border-emerald/10 rounded-2xl p-6 hover:border-emerald/30 transition-all duration-300"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-emerald/10 flex items-center justify-center mb-5 group-hover:bg-emerald/20 transition-colors duration-300">
-                    <Icon className="w-5 h-5 text-emerald group-hover:drop-shadow-[0_0_8px_rgba(0,208,132,0.4)] transition-all duration-300" />
+                  {/* Icon */}
+                  <div className="flex items-center justify-center w-16 h-16 bg-emerald/10 rounded-2xl mb-4 service-icon">
+                    <Icon className="w-8 h-8 text-emerald" />
                   </div>
-                  <h3 className="text-white text-lg font-semibold mb-3">
+
+                  {/* Content */}
+                  <h3 className="text-white text-xl font-bold mb-3 group-hover:text-emerald transition-colors duration-300 service-title">
                     {service.title}
                   </h3>
-                  <p className="text-silver text-sm leading-relaxed mb-5">
+                  <p className="text-silver text-sm leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  
-                  {/* Features List */}
-                  <div className="space-y-2 mb-5">
-                    {service.features.map((feature, featureIdx) => (
-                      <div key={featureIdx} className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-emerald/60" />
-                        <span className="text-silver/80 text-xs">{feature}</span>
+
+                  {/* Features */}
+                  <div className="space-y-2">
+                    {service.features.slice(0, 3).map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-center space-x-2">
+                        <div className="w-1.5 h-1.5 bg-emerald rounded-full" />
+                        <span className="text-silver text-xs">{feature}</span>
                       </div>
                     ))}
                   </div>
-                  
-                  <button className="inline-flex items-center gap-2 text-emerald text-sm font-medium group/link">
-                    <span className="relative">
-                      En savoir plus
-                      <span className="absolute bottom-0 left-0 w-0 h-px bg-emerald transition-all duration-300 group-hover/link:w-full" />
-                    </span>
-                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </button>
                 </div>
               );
             })}

@@ -188,7 +188,7 @@ export default function Domaines() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 bg-navy overflow-hidden"
+      className="relative py-12 md:py-16 bg-navy overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -219,7 +219,7 @@ export default function Domaines() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-12">
           <span className="text-emerald text-sm font-medium uppercase tracking-[0.2em] mb-4 block">
             Nos Domaines d'Intervention
           </span>
@@ -227,10 +227,13 @@ export default function Domaines() {
             Solutions complètes pour{' '}
             <span className="text-emerald">tous vos besoins</span>
           </h2>
+          <p className="text-silver text-lg mt-4 max-w-3xl mx-auto">
+            Une expertise couvrant tous les aspects de la transformation digitale pour propulser votre entreprise vers l'excellence
+          </p>
         </div>
 
         {/* Domaines Grid */}
-        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {domaines.map((domaine, index) => {
             const Icon = domaine.icon;
             return (
@@ -273,6 +276,78 @@ export default function Domaines() {
               </div>
             );
           })}
+        </div>
+
+        {/* Additional content section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 className="text-white text-2xl font-bold mb-4">
+              Notre méthodologie{' '}
+              <span className="text-emerald">d'excellence</span>
+            </h3>
+            <p className="text-silver text-sm leading-relaxed mb-6">
+              Chaque domaine d'intervention bénéficie de notre expertise accumulée et de notre engagement envers l'innovation continue.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 bg-emerald rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Analyse approfondie</h4>
+                  <p className="text-silver text-sm">Compréhension complète de vos enjeux business et techniques</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 bg-emerald rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Solutions sur mesure</h4>
+                  <p className="text-silver text-sm">Adaptation précise à votre secteur d'activité</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-6 h-6 bg-emerald rounded-full" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Accompagnement continu</h4>
+                  <p className="text-silver text-sm">Support technique et évolution permanente</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1558629363-cbdc2b8dd0d8?w=600&h=400&fit=crop&crop=center" 
+              alt="Digital transformation" 
+              className="rounded-2xl shadow-2xl w-full"
+            />
+            <div className="absolute top-4 left-4 bg-emerald text-white px-3 py-1 rounded-full text-sm font-medium">
+              6 Domaines d'expertise
+            </div>
+          </div>
+        </div>
+
+        {/* Stats section */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">6</p>
+            <p className="text-silver text-sm">Domaines d'expertise</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">50+</p>
+            <p className="text-silver text-sm">Projets livrés</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">99%</p>
+            <p className="text-silver text-sm">Satisfaction client</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">24/7</p>
+            <p className="text-silver text-sm">Support technique</p>
+          </div>
         </div>
       </div>
     </section>

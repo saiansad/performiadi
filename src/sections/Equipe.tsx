@@ -53,20 +53,96 @@ export default function Equipe() {
         },
       });
 
-      // Cards animation
+      // Cards animation with enhanced effects like Domaines section
       const cardEls = cardsRef.current?.children;
       if (cardEls) {
-        gsap.from(cardEls, {
-          y: 60,
+        const cardArray = Array.from(cardEls);
+        
+        // Staggered entrance animation with rotation like Domaines
+        gsap.from(cardArray, {
+          y: 80,
           opacity: 0,
-          rotateX: 10,
+          scale: 0.9,
+          rotation: 2,
           stagger: 0.15,
-          duration: 0.7,
-          ease: 'power3.out',
+          duration: 0.8,
+          ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: cardsRef.current,
-            start: 'top 75%',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
           },
+        });
+
+        // Parallax effect on cards like Domaines
+        gsap.to(cardArray, {
+          yPercent: -15,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: cardsRef.current,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 1,
+          },
+        });
+
+        // Enhanced hover effects for cards like Domaines
+        cardArray.forEach((card) => {
+          const gradientEl = card.querySelector('.team-gradient');
+          const textEl = card.querySelector('.team-text');
+          
+          card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+              y: -12,
+              scale: 1.03,
+              rotation: 0,
+              duration: 0.4,
+              ease: 'power2.out',
+            });
+            
+            if (gradientEl) {
+              gsap.to(gradientEl, {
+                rotation: 360,
+                scale: 1.1,
+                duration: 0.6,
+                ease: 'power2.out',
+              });
+            }
+            
+            if (textEl) {
+              gsap.to(textEl, {
+                y: -5,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            }
+          });
+
+          card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+              y: 0,
+              scale: 1,
+              duration: 0.4,
+              ease: 'power2.out',
+            });
+            
+            if (gradientEl) {
+              gsap.to(gradientEl, {
+                rotation: 0,
+                scale: 1,
+                duration: 0.6,
+                ease: 'power2.out',
+              });
+            }
+            
+            if (textEl) {
+              gsap.to(textEl, {
+                y: 0,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            }
+          });
         });
       }
 
@@ -129,11 +205,11 @@ export default function Equipe() {
           {team.map((member, idx) => (
             <div
               key={idx}
-              className="group relative rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer"
+              className="group relative bg-navy-light/50 backdrop-blur-sm border border-emerald/10 rounded-2xl overflow-hidden aspect-[3/4] cursor-pointer transition-all duration-300 hover:border-emerald/30"
             >
               {/* Gradient Portrait */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${member.gradient} flex items-center justify-center transition-transform duration-500 group-hover:scale-105`}
+                className={`absolute inset-0 bg-gradient-to-br ${member.gradient} flex items-center justify-center transition-transform duration-500 group-hover:scale-105 team-gradient`}
               >
                 <span className="text-white/20 text-6xl font-bold select-none">
                   {member.initial}
@@ -144,7 +220,7 @@ export default function Equipe() {
               <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent transition-all duration-500 group-hover:via-navy/10" />
 
               {/* Text */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="absolute bottom-0 left-0 right-0 p-6 team-text">
                 <h3 className="text-white text-lg font-semibold">
                   {member.name}
                 </h3>

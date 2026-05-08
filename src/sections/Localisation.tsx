@@ -176,7 +176,7 @@ export default function Localisation() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 bg-navy overflow-hidden"
+      className="relative py-12 md:py-16 bg-navy overflow-hidden"
     >
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -207,7 +207,7 @@ export default function Localisation() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 relative">
         {/* Header */}
-        <div ref={headerRef} className="text-center mb-16">
+        <div ref={headerRef} className="text-center mb-12">
           <span className="text-emerald text-sm font-medium uppercase tracking-[0.2em] mb-4 block">
             Notre Présence
           </span>
@@ -301,10 +301,85 @@ export default function Localisation() {
           ))}
         </div>
 
+        {/* Additional content section */}
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 className="text-white text-2xl font-bold mb-4">
+              Notre présence{' '}
+              <span className="text-emerald">stratégique</span>
+            </h3>
+            <p className="text-silver text-sm leading-relaxed mb-6">
+              Avec des bureaux dans les principales villes camerounaises et un réseau continental, nous sommes idéalement positionnés pour servir nos clients avec réactivité et excellence.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-emerald" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Couverture nationale</h4>
+                  <p className="text-silver text-sm">Présence dans les 10 régions du Cameroun</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Globe className="w-6 h-6 text-emerald" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Réseau panafricain</h4>
+                  <p className="text-silver text-sm">Partenaires dans 8 pays d'Afrique centrale</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-4">
+                <div className="w-12 h-12 bg-emerald/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <Users className="w-6 h-6 text-emerald" />
+                </div>
+                <div>
+                  <h4 className="text-white font-semibold mb-1">Équipe locale</h4>
+                  <p className="text-silver text-sm">50+ experts basés en Afrique</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="relative">
+            <img 
+              src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?w=600&h=400&fit=crop&crop=center" 
+              alt="Africa presence" 
+              className="rounded-2xl shadow-2xl w-full"
+            />
+            <div className="absolute top-4 right-4 bg-emerald text-white px-3 py-1 rounded-full text-sm font-medium">
+              8 Pays couverts
+            </div>
+          </div>
+        </div>
+
+        {/* Stats section */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">2</p>
+            <p className="text-silver text-sm">Bureaux principaux</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">8</p>
+            <p className="text-silver text-sm">Pays partenaires</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">50+</p>
+            <p className="text-silver text-sm">Experts locaux</p>
+          </div>
+          <div className="bg-navy-light/30 border border-emerald/10 rounded-xl p-6 text-center">
+            <p className="text-emerald text-3xl font-bold mb-2">24/7</p>
+            <p className="text-silver text-sm">Support technique</p>
+          </div>
+        </div>
+
         {/* Contact Info */}
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <div className="bg-emerald/10 backdrop-blur-sm border border-emerald/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-white text-2xl font-bold mb-6">Contactez-nous</h3>
+            <p className="text-silver text-sm mb-6">
+              Notre équipe est à votre disposition pour discuter de vos projets et vous accompagner dans votre transformation digitale.
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="flex items-center justify-center space-x-3">
                 <Mail className="w-5 h-5 text-emerald" />

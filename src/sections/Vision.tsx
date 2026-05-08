@@ -181,27 +181,19 @@ export default function Vision() {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 md:py-20 bg-navy overflow-hidden"
+      className="relative py-12 md:py-16 bg-navy overflow-hidden"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-emerald/5 rounded-full blur-3xl animate-pulse" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue/5 rounded-full blur-3xl animate-pulse delay-1000" />
         
-        {/* Stock images */}
-        <div className="absolute top-10 right-20 opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=300&h=300&fit=crop&crop=center" 
-            alt="Technology vision" 
-            className="w-32 h-32 rounded-lg transform rotate-12 shadow-2xl"
-          />
+        {/* Decorative geometric shapes */}
+        <div className="absolute top-10 right-20 opacity-20">
+          <div className="w-32 h-32 bg-gradient-to-br from-emerald/20 to-blue/20 rounded-lg transform rotate-12" />
         </div>
-        <div className="absolute bottom-10 left-20 opacity-30">
-          <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=300&fit=crop&crop=center" 
-            alt="Digital transformation" 
-            className="w-40 h-40 rounded-lg transform -rotate-12 shadow-2xl"
-          />
+        <div className="absolute bottom-10 left-20 opacity-20">
+          <div className="w-40 h-40 bg-gradient-to-tr from-blue/20 to-emerald/20 rounded-lg transform -rotate-12" />
         </div>
         
         {/* Floating particles */}
@@ -225,31 +217,57 @@ export default function Vision() {
           </h3>
         </div>
 
-        {/* Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          <div ref={contentRef} className="space-y-6">
-            <p className="text-silver text-lg md:text-xl leading-relaxed">
-              Performia Digital ne se contente pas de coder. Nous bâtissons{' '}
-              <span className="text-emerald font-semibold">l'infrastructure immatérielle</span>{' '}
-              de l'économie camerounaise.
-            </p>
-            <p className="text-silver text-lg md:text-xl leading-relaxed">
-              Notre approche fusionne{' '}
-              <span className="text-emerald font-semibold">l'ingénierie logicielle de pointe</span>{' '}
-              et une compréhension profonde des enjeux locaux pour offrir des solutions qui{' '}
-              <span className="text-emerald font-semibold">redéfinissent les standards</span>{' '}
-              du marché.
-            </p>
-            <div className="flex items-center gap-4 pt-4">
-              <div className="w-16 h-px bg-emerald/50" />
-              <span className="text-emerald text-sm font-medium uppercase tracking-[0.1em]">
-                Excellence & Innovation
-              </span>
-              <div className="w-16 h-px bg-emerald/50" />
+        {/* Content with images */}
+        <div ref={contentRef} className="mb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="text-silver text-lg leading-relaxed mb-6">
+                Performia Digital ne se contente pas de coder. Nous bâtissons l'infrastructure immatérielle de l'économie camerounaise. Notre approche fusionne l'ingénierie logicielle de pointe et une compréhension profonde des enjeux locaux pour offrir des solutions qui redéfinissent les standards du marché.
+              </p>
+              <div className="space-y-4 mb-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-emerald rounded-full mt-2 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Innovation Technologique</h4>
+                    <p className="text-silver text-sm">Intégration des dernières technologies pour des solutions avant-gardistes</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-emerald rounded-full mt-2 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Expertise Locale</h4>
+                    <p className="text-silver text-sm">Compréhension approfondie du marché camerounais et africain</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-2 h-2 bg-emerald rounded-full mt-2 flex-shrink-0" />
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">Excellence Opérationnelle</h4>
+                    <p className="text-silver text-sm">Standards de qualité internationale adaptés au contexte local</p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-16 h-px bg-emerald/50" />
+                <span className="text-emerald text-sm font-medium uppercase tracking-[0.1em]">
+                  Excellence & Innovation
+                </span>
+                <div className="w-16 h-px bg-emerald/50" />
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center" 
+                alt="Technology vision" 
+                className="rounded-2xl shadow-2xl w-full"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-emerald text-white p-4 rounded-xl shadow-lg">
+                <p className="text-sm font-medium">Depuis 2020</p>
+                <p className="text-2xl font-bold">50+ Projets</p>
+              </div>
             </div>
           </div>
-
-          {/* Animated illustration placeholder */}
+        </div>
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden border border-white/10 glass-light p-8">
               <div className="space-y-4">
