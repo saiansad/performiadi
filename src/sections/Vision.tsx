@@ -268,7 +268,6 @@ export default function Vision() {
             </div>
           </div>
         </div>
-        </div>
 
         {/* Performance indicators */}
         <div className="relative">
