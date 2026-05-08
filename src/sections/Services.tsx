@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Globe, Megaphone, Phone, Cpu, ArrowRight } from 'lucide-react';
+import { Globe, Megaphone, Phone, Cpu } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
